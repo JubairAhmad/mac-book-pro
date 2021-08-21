@@ -109,6 +109,6 @@ document.getElementById('apply-offer').addEventListener('click', function(){
         const totalWithPromo=(totalPromo)-(totalPromo*20/100);
         document.getElementById('total-with-promo').innerText=totalWithPromo;
         promoFeild.value="";
-        document.getElementById("offer-code").disabled = true;
+        document.getElementById("apply-offer").disabled = true;
     }
 })
