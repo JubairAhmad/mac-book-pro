@@ -1,86 +1,34 @@
-document.getElementById('gb8-memory').addEventListener('click', function(){
-    let gb8Price= document.getElementById('gb8-memory').Value;
-    gb8Price=0;
+/* memoryCost */
+
+function extraMemoryCost(memory,price){
+    let storagePrice= document.getElementById(memory +'-memory').Value;
+    storagePrice=price;
     const extraMemory=document.getElementById('extra-memory-cost');
-    extraMemory.innerText=gb8Price;
-
-
+    extraMemory.innerText=storagePrice;
     addintionTotal();
-})
+}
 
-
-document.getElementById('gb16-memory').addEventListener('click', function(){
-    let gb16Price= document.getElementById('gb16-memory').Value;
-    gb16Price=180;
-    const extraMemory=document.getElementById('extra-memory-cost');
-    extraMemory.innerText=gb16Price;
-
-
-    addintionTotal();
-})
-
-/*  memory section ses  */
-
-
-
-document.getElementById('GB256-SSd-storage').addEventListener('click',function(){
-    let gb256SSD=document.getElementById('GB256-SSd-storage').value;
-    gb256SSD=0;
+/* storageCost */
+function extraStorageCost(storage,price){
+    let SSDprice=document.getElementById(storage+'-storage').value;
+    SSDprice=price;
     const extraStorage=document.getElementById('extra-storage-cost');
-    extraStorage.innerText=gb256SSD;
-
-
-    addintionTotal();
-})
-
-document.getElementById('GB512-SSD-storage').addEventListener('click',function(){
-    let gb512SSD=document.getElementById('GB512-SSD-storage').value;
-    gb512SSD=100;
-    const extraStorage=document.getElementById('extra-storage-cost');
-    extraStorage.innerText=gb512SSD;
-
+    extraStorage.innerText=SSDprice;
 
     addintionTotal();
-})
+}
 
-document.getElementById('TB1-storage').addEventListener('click', function(){
-    let tb1SSD=document.getElementById('TB1-storage').value;
-    tb1SSD=180
-    const extraStorage=document.getElementById('extra-storage-cost');
-    extraStorage.innerText=tb1SSD;
-
-
-    addintionTotal();
-})
-
-
-/* storage section ses */
-
-document.getElementById('free-delivery').addEventListener('click', function(){
-    let freeDelivery= document.getElementById('free-delivery').value;
-    freeDelivery= 0;
+/* deliveryCost */
+function extraDliveryCost(deliveryOption,price){
+    let deliveryAmmount= document.getElementById(deliveryOption+'-charge').value;
+    deliveryAmmount= price;
     const deliveryCost=document.getElementById('delivery-cost');
-    deliveryCost.innerText=freeDelivery;
-    
-
+    deliveryCost.innerText=deliveryAmmount;
 
     addintionTotal();
-})
+}
 
-
-document.getElementById('delivery-with-charge').addEventListener('click', function(){
-    let deliveryWithCharge=document.getElementById('delivery-with-charge').value;
-    deliveryWithCharge=20;
-    const deliveryCost=document.getElementById('delivery-cost');
-    deliveryCost.innerText=deliveryWithCharge;
-
-
-    addintionTotal();
-
-})
-
-
-/* delivery section ses */
+/* subTotal */
 
 
 function addintionTotal(){
@@ -112,17 +60,51 @@ totalPromo.innerText=totalCost;
 
 }
 
-document.getElementById('apply-offer').addEventListener('click', function(){
-    const promoFeild=document.getElementById('offer-code').value;
-    if (promoFeild =="stevekaku") {
-        const totalPromoText=document.getElementById('total-with-promo').innerText;
-        const totalPromo =parseInt(totalPromoText); 
-        const totalWithPromo=(totalPromo)-(totalPromo*20/100);
-        console.log(totalWithPromo);
-        document.getElementById('total-with-promo').innerText=totalWithPromo;
-    }
-    document.getElementById("total-with-promo").disabled = true;
+/*  memory section  */
+document.getElementById('gb8-memory').addEventListener('click', function(){
+    extraMemoryCost("gb8",0);
 })
 
 
+document.getElementById('gb16-memory').addEventListener('click', function(){
+    extraMemoryCost("gb16",180);
+})
 
+
+/* storage section */
+
+
+document.getElementById('GB256-SSd-storage').addEventListener('click',function(){
+    extraStorageCost("GB256-SSd",0)
+})
+
+document.getElementById('GB512-SSD-storage').addEventListener('click',function(){
+    extraStorageCost("GB512-SSD",100)
+})
+
+document.getElementById('TB1-storage').addEventListener('click', function(){
+    extraStorageCost("TB1",180)
+})
+
+/* delivery section */
+
+document.getElementById('delivery-without-charge').addEventListener('click', function(){
+    extraDliveryCost('delivery-without',0)
+})
+
+
+document.getElementById('delivery-with-charge').addEventListener('click', function(){
+    extraDliveryCost('delivery-with',20)
+})
+
+
+document.getElementById('apply-offer').addEventListener('click', function(){
+    const promoFeild=document.getElementById('offer-code');
+    if (promoFeild.value =="stevekaku") {
+        const totalPromoText=document.getElementById('total-with-promo').innerText;
+        const totalPromo =parseInt(totalPromoText); 
+        const totalWithPromo=(totalPromo)-(totalPromo*20/100);
+        document.getElementById('total-with-promo').innerText=totalWithPromo;
+        promoFeild.value="";
+    }
+})
