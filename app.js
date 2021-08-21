@@ -99,6 +99,9 @@ document.getElementById('delivery-with-charge').addEventListener('click', functi
 
 
 document.getElementById('apply-offer').addEventListener('click', function(){
+
+
+
     const promoFeild=document.getElementById('offer-code');
     if (promoFeild.value =="stevekaku") {
         const totalPromoText=document.getElementById('total-with-promo').innerText;
@@ -106,5 +109,6 @@ document.getElementById('apply-offer').addEventListener('click', function(){
         const totalWithPromo=(totalPromo)-(totalPromo*20/100);
         document.getElementById('total-with-promo').innerText=totalWithPromo;
         promoFeild.value="";
+        document.getElementById("offer-code").disabled = true;
     }
 })
