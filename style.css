@@ -1,0 +1,77 @@
+body{
+    margin: 0;
+    padding: 0%;
+}
+#main-section{
+    width: 75%;
+    margin: 0% auto;
+    padding: 10px;
+}
+#container{
+    display: flex;
+}
+img{
+    margin: 70px 30px 0 0;
+    width: 250px;
+    padding-left: 170px;
+}
+#caption{
+    margin-left: 20px;
+}
+h1{
+    font-size: 40px;
+    font-weight: 700;
+}
+h3{
+    margin: 0%;
+    margin-top: 20px;
+}
+#cost-divission{
+    margin-top: 40px;
+}
+h2{
+    margin: 0%;
+}
+.memory{
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10px;
+}
+.storage{
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10px;
+}
+.delivery{
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10px;
+}
+.price-handeler{
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+#cost-divission > hr{
+    border: .5px solid rgba(0, 0, 0, 0.089);
+    width: 60%;
+    margin: 0%;
+}
+#cost-divission > #deep-hr{
+    border: 1px solid black;
+}
+#offer-code{
+    padding: 8px;
+    border-radius: 4px;
+}
+#apply-offer{color: white;
+    background-color: red;
+    border: 0 solid ;
+    border-radius: 4px;
+    padding: 8.5px;
+}
+#footer-section > h1{
+    text-align: center;
+    margin: 10px 0 ;
+}
